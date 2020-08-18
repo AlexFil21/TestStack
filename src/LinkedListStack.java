@@ -1,25 +1,4 @@
-public class LinkedListStack <T> {
-    private final LinkedList<T> linkedList = new LinkedList<>();
-
-    public void push(T data) {
-        linkedList.addFirst(data);
-    }
-
-    public T pop() {
-        return linkedList.removeFirst();
-    }
-
-    public boolean isEmpty() {
-        return linkedList.isEmpty();
-    }
-
-    @Override
-    public String toString() {
-        return linkedList.toString();
-    }
-}
-
-class LinkedList<T> {
+class LinkedListStack<T> {
     // внутренний класс, который представляет элемент списка
     private static class Node<T> {
         // данные
@@ -40,14 +19,14 @@ class LinkedList<T> {
     private Node<T> first;
 
     // используется для push операции
-    public void addFirst(T data) {
+    public void push(T data) {
         Node<T> newFirst = new Node<>(data);
         newFirst.next = first;
         first = newFirst;
     }
 
     // используется для pop операции
-    public T removeFirst() {
+    public T pop() {
         Node<T> oldFirst = first;
         first = first.next;
         return oldFirst.data;
